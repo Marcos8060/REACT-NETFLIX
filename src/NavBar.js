@@ -1,14 +1,15 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import './NavBar.css'
 import logo from './Images/netlogo.png'
 import netflix from './Images/netflix.png'
 
 function NavBar() {
+    const [show,handleShow] = useState(false)
     
     useEffect(()=>{
         window.addEventListener('scroll',()=>{
             if(window.scrollY > 100){
-                // handleshow true
+                handleShow(true)
             }else{
                 handleShow(false)
             }
@@ -18,7 +19,7 @@ function NavBar() {
         };
     },[])
   return (
-    <div className='nav'>
+    <div className={`nav ${show && "nav__black"}`}>
         <img 
         src={netflix}
         alt="Netflix logo"
