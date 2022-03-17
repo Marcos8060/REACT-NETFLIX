@@ -21,33 +21,35 @@ function Banner() {
     console.log(movie);
 
     // text truncating function
-    const truncate = (text, len) => {
-        if (text.length > len && text.length > 0) {
-          return `${text.split(" ").slice(0, len).join(" ")} ...`;
-        } else {
-          return text;
-        }
-      };
+    // const truncate = (text, len) => {
+    //     if (text.length > len && text.length > 0) {
+    //       return `${text.split(" ").slice(0, len).join(" ")} ...`;
+    //     } else {
+    //       return text;
+    //     }
+    //   };
 
   return (
     <header className='banner'
       style={{
           backgroundSize:'cover',
           backgroundImage:`url(https://image.tmdb.org/t/p/original/${movie?.backdrop_path})`,
-          backgroundPosition: 'center center'
+          backgroundPosition: 'center center',
+          objectFit:'cover'
       }}>
         <div className="banner__contents">
             <h1 className='banner__title'>
                 {movie?.title || movie?.name || movie?.original_name}
             </h1>
             <div className="banner_buttons">
-                <button className="banner_button">Play</button>
-                <button className="banner_button">My List</button>
+                <button className="banner__button">Play</button>
+                <button className="banner__button">My List</button>
             </div>
             <h1 className="banner__description">
-                {truncate(movie?.overview, 150)}
+                {movie?.overview}
             </h1>
         </div>
+        <div className='banner--fadeBottom'/>
     </header>
   )
 }
