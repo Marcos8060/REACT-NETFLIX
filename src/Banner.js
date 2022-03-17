@@ -35,7 +35,7 @@ function Banner() {
           backgroundSize:'cover',
           backgroundImage:`url(https://image.tmdb.org/t/p/original/${movie?.backdrop_path})`,
           backgroundPosition: 'center center',
-          objectFit:'cover'
+          objectFit:'contain'
       }}>
         <div className="banner__contents">
             <h1 className='banner__title'>
